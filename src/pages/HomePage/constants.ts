@@ -4,5 +4,3 @@ export const FORM_ENDPOINT =
 export const API_RESPONSE = {
   Success: "Registered",
 };
-
-export type InputFieldName = "name" | "email" | "confirmEmail";

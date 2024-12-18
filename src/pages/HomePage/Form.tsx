@@ -3,12 +3,13 @@ import styled, { css } from "styled-components";
 
 import Button from "../../components/Button";
 
-import { API_RESPONSE, InputFieldName } from "./constants";
+import { API_RESPONSE } from "./constants";
 import useFormValidation from "./hooks/useFormValidation";
 import { submitInviteForm } from "./utils";
 
 import theme from "../../theme";
 import LoadingIcon from "../../assets/images/loading.gif";
+import { InputFieldName } from "../../types";
 
 type Props = {
   onClose: () => void;

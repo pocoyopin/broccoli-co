@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Form from "./Form";
 import styled, { css } from "styled-components";
+
+import Form from "./Form";
 import Button from "../../components/Button";
 
 const Content: React.FC = () => {

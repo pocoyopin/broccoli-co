@@ -1,1 +1,1 @@
-export type Type1 = {};
+export type InputFieldName = "name" | "email" | "confirmEmail";

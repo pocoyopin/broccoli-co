@@ -1,11 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Content from "./Content";
 
 import "./index.css";
-import styled from "styled-components";
 
 const HomePage: React.FC = () => {
   return (

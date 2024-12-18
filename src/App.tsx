@@ -1,6 +1,7 @@
 import React from "react";
-import HomePage from "./pages/HomePage";
 import { ThemeProvider } from "styled-components";
+
+import HomePage from "./pages/HomePage";
 import theme from "./theme";
 
 function App() {
