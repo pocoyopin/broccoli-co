@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Broccoli & Co. Web App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -34,10 +34,14 @@ This app can be deployed to github pages. To do so, run the following command:
 yarn deploy
 ```
 
-This will deploy the app into 
+This will deploy the app into [the web page](https://pocoyopin.github.io/broccoli-co/).
 
+### Unit tests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run the following command to run the unit tests
 
-### `yarn build`
+```
+yarn test
+```
+
+This launches the test runner in the interactive watch mode.
