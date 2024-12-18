@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This app is a homepage to allow users to enter their name and email to receive email invitations.
 
+![home page screenshot](public/HomePage.png)
+
+![invitation form screenshot](public/HomePage-Form.png)
+
 ## Commands
 
 ### Running the app locally
