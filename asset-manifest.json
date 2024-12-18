@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/broccoli-co/static/css/main.e134c3cf.css",
-    "main.js": "/broccoli-co/static/js/main.c9878564.js",
+    "main.js": "/broccoli-co/static/js/main.484844cf.js",
     "static/media/loading.gif": "/broccoli-co/static/media/loading.683988f3fa06248b8d66.gif",
     "static/media/logo.png": "/broccoli-co/static/media/logo.0e15574778d45f0ccdfe.png",
     "index.html": "/broccoli-co/index.html",
     "main.e134c3cf.css.map": "/broccoli-co/static/css/main.e134c3cf.css.map",
-    "main.c9878564.js.map": "/broccoli-co/static/js/main.c9878564.js.map"
+    "main.484844cf.js.map": "/broccoli-co/static/js/main.484844cf.js.map"
   },
   "entrypoints": [
     "static/css/main.e134c3cf.css",
-    "static/js/main.c9878564.js"
+    "static/js/main.484844cf.js"
   ]
 }
