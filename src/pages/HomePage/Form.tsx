@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
 import LoadingIcon from "../../assets/images/loading.gif";
-import { API_RESPONSE, FORM_ENDPOINT } from "./constants";
+import { API_RESPONSE, FORM_ENDPOINT, InputFieldName } from "./constants";
 import Button from "../../components/Button";
-import { submitInviteForm } from "./utils";
+import { submitInviteForm, validateInviteForm } from "./utils";
 
 type Props = {
   onClose: () => void;
@@ -25,53 +25,6 @@ const Form: React.FC<Props> = (props: Props) => {
   });
   const [apiResponse, setApiResponse] = useState({ data: "", errorMsg: "" });
 
-  // TODO: move to utils
-  // TODO: email validation
-  const validateInput = (field: string, value: string) => {
-    switch (field) {
-      case "name":
-        if (!value) {
-          setErrorMessage({ ...errorMessage, name: "Full name is required" });
-        } else {
-          setErrorMessage({ ...errorMessage, name: "" });
-        }
-        break;
-      case "email":
-        if (!value) {
-          setErrorMessage({ ...errorMessage, email: "Email is required" });
-        } else {
-          const err = { email: "", confirmEmail: "" };
-          if (formValue.confirmEmail && formValue.confirmEmail !== value) {
-            err.confirmEmail = "Confirmation email does not match email";
-          } else {
-            err.confirmEmail = "";
-          }
-
-          setErrorMessage({ ...errorMessage, ...err });
-        }
-        break;
-      case "confirmEmail":
-        if (!value) {
-          setErrorMessage({
-            ...errorMessage,
-            confirmEmail: "Confirmation email is required",
-          });
-        } else {
-          if (formValue.email !== value) {
-            setErrorMessage({
-              ...errorMessage,
-              confirmEmail: "Confirmation email does not match email",
-            });
-          } else {
-            setErrorMessage({ ...errorMessage, confirmEmail: "" });
-          }
-        }
-        break;
-      default:
-        break;
-    }
-  };
-
   const handleSubmit = async () => {
     setIsSubmitting(true);
     setApiResponse({ data: "", errorMsg: "" });
@@ -89,9 +42,9 @@ const Form: React.FC<Props> = (props: Props) => {
     return false;
   };
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: InputFieldName, value: string) => {
     setFormValue({ ...formValue, [field]: value });
-    validateInput(field, value);
+    setErrorMessage(validateInviteForm(field, value));
   };
 
   return (
