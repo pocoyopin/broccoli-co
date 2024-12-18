@@ -3,13 +3,12 @@ import styled, { css } from "styled-components";
 
 import Button from "../../components/Button";
 
-import { API_RESPONSE } from "./constants";
 import useFormValidation from "./hooks/useFormValidation";
 import { submitInviteForm } from "./utils";
 
 import theme from "../../theme";
 import LoadingIcon from "../../assets/images/loading.gif";
-import { InputFieldName } from "../../types";
+import { InputFieldName } from "./types";
 
 type Props = {
   onClose: () => void;
@@ -29,11 +28,14 @@ const Form: React.FC<Props> = (props: Props) => {
     isSubmitting,
     firstUpdate.current
   );
-  const [apiResponse, setApiResponse] = useState({ data: "", errorMsg: "" });
+  const [apiResponse, setApiResponse] = useState({
+    isSuccessful: false,
+    errorMsg: "",
+  });
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    setApiResponse({ data: "", errorMsg: "" });
+    setApiResponse({ isSuccessful: false, errorMsg: "" });
   };
 
   useLayoutEffect(() => {
@@ -66,7 +68,7 @@ const Form: React.FC<Props> = (props: Props) => {
   return (
     <Overlay>
       <FormContainer>
-        {apiResponse.data === API_RESPONSE.Success ? (
+        {apiResponse.isSuccessful ? (
           <ModalContainer>
             <FormContentContainer>
               <FormTitle>All done!</FormTitle>

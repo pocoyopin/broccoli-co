@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { InputFieldName } from "../../../types";
+import { InputFieldName } from "../types";
 
 const useFormValidation = (
   formValue: Record<InputFieldName, string>,
