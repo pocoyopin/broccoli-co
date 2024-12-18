@@ -1,11 +1,14 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 
-import LoadingIcon from "../../assets/images/loading.gif";
-import { API_RESPONSE, FORM_ENDPOINT, InputFieldName } from "./constants";
 import Button from "../../components/Button";
-import { submitInviteForm, validateInviteForm } from "./utils";
+
+import { API_RESPONSE, InputFieldName } from "./constants";
+import useFormValidation from "./hooks/useFormValidation";
+import { submitInviteForm } from "./utils";
+
+import theme from "../../theme";
+import LoadingIcon from "../../assets/images/loading.gif";
 
 type Props = {
   onClose: () => void;
@@ -18,33 +21,40 @@ const Form: React.FC<Props> = (props: Props) => {
     email: "",
     confirmEmail: "",
   });
-  const [errorMessage, setErrorMessage] = useState({
-    name: "",
-    email: "",
-    confirmEmail: "",
-  });
+  const firstUpdate = useRef(true);
+
+  const errorMessage = useFormValidation(formValue, isSubmitting, firstUpdate.current);
   const [apiResponse, setApiResponse] = useState({ data: "", errorMsg: "" });
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
     setApiResponse({ data: "", errorMsg: "" });
-
-    if (Object.values(errorMessage).every((item) => !item)) {
-      try {
-        const res = await submitInviteForm(formValue);
-        setApiResponse(res);
-      } catch (e) {
-        console.error({ e });
-      }
-    }
-
-    setIsSubmitting(false);
-    return false;
   };
+
+  useLayoutEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+  });
+
+  useEffect(() => {
+    const submitForm = async () => {
+      if (isSubmitting && Object.values(errorMessage).every((item) => !item))
+        try {
+          const res = await submitInviteForm(formValue);
+          setApiResponse(res);
+        } catch (e) {
+          console.error({ e });
+        }
+      setIsSubmitting(false);
+    };
+
+    submitForm();
+  }, [errorMessage]);
 
   const handleInputChange = (field: InputFieldName, value: string) => {
     setFormValue({ ...formValue, [field]: value });
-    setErrorMessage(validateInviteForm(field, value));
   };
 
   return (
@@ -68,9 +78,23 @@ const Form: React.FC<Props> = (props: Props) => {
             </FormContentContainer>
           </ModalContainer>
         ) : (
-          // TODO: add close button
           <FormContent name="invite-form" title="Request an Invite">
             <FormContentContainer>
+              <Button
+                type="button"
+                size="small"
+                style={{
+                  border: "none",
+                  alignSelf: "flex-end",
+                  position: "absolute",
+                  padding: 0,
+                  height: theme.spacing.d,
+                }}
+                onClick={props.onClose}
+                aria-label="Close form button"
+              >
+                &#x2715;
+              </Button>
               <FormTitle>Request an Invite</FormTitle>
 
               <Input
@@ -172,7 +196,7 @@ const ModalContainer = styled.div`
 const FormContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding: 2rem;
 `;
 
 const FormTitle = styled.h1`
