@@ -140,6 +140,23 @@ describe("HomePage", () => {
           ).toBeInTheDocument();
         });
 
+        test("empty full name", () => {
+          const { container, getByPlaceholderText } = render(
+            <ThemeProvider theme={theme}>
+              <HomePage />
+            </ThemeProvider>
+          );
+
+          fireEvent.click(getById(container, "requestInvite")!);
+
+          fireEvent.change(getByPlaceholderText("Full name"), {
+            target: { value: "te" },
+          });
+          expect(
+            screen.queryByText("Full name is should have minimal 3 characters")
+          ).toBeInTheDocument();
+        });
+
         test("confirmation email not equal email", () => {
           const { container, getByPlaceholderText } = render(
             <ThemeProvider theme={theme}>

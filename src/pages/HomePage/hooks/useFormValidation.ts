@@ -37,7 +37,11 @@ const useFormValidation = (
         if (!formValue["name"]) {
           allErrorMsg.name = "Full name is required";
         } else {
-          allErrorMsg.name = "";
+          if (formValue["name"].length < 3) {
+            allErrorMsg.name = "Full name is should have minimal 3 characters";
+          } else {
+            allErrorMsg.name = "";
+          }
         }
         break;
 
