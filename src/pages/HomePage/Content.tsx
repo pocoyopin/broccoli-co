@@ -23,6 +23,7 @@ const Content: React.FC = () => {
         className="invite"
         onClick={handleShowForm}
         aria-label="Request an invite button"
+        id="requestInvite"
       >
         Request an invite
       </Button>

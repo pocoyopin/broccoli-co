@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar renders navbar 1`] = `
+Object {
+  "$$typeof": Symbol(react.transitional.element),
+  "_owner": null,
+  "_store": Object {},
+  "key": null,
+  "props": Object {
+    "children": Object {
+      "$$typeof": Symbol(react.transitional.element),
+      "_owner": null,
+      "_store": Object {},
+      "key": null,
+      "props": Object {},
+      "type": [Function],
+    },
+    "theme": Object {
+      "breakpoints": Array [
+        "450px",
+        "600px",
+        "800px",
+        "1200px",
+      ],
+      "colors": Object {
+        "black": "#000000",
+        "black10": "rgba(0,0,0,0.1)",
+        "black50": "rgba(0,0,0,0.5)",
+        "black70": "rgba(0,0,0,0.7)",
+        "black90": "rgba(0,0,0,0.9)",
+        "red": "#ff0000",
+        "white": "#ffffff",
+      },
+      "fontSizes": Object {
+        "h1": "4.8rem",
+        "h2": "3.2rem",
+        "h3": "2.4rem",
+        "h4": "1.8rem",
+        "h5": "1.5rem",
+        "h6": "1.35rem",
+        "paragraph": "1.2rem",
+        "small": "0.8rem",
+        "subtext": "1rem",
+      },
+      "fontWeights": Object {
+        "bold": 700,
+        "light": 300,
+        "lightBold": 600,
+        "medium": 500,
+        "normal": 400,
+      },
+      "mediaQueries": Object {
+        "lg": "@media screen and (min-width: 800px)",
+        "md": "@media screen and (min-width: 600px)",
+        "sm": "@media screen and (min-width: 450px)",
+        "xl": "@media screen and (min-width: 1200px)",
+      },
+      "spacing": Object {
+        "a": 0,
+        "b": 4,
+        "c": 8,
+        "d": 16,
+        "e": 24,
+        "f": 32,
+      },
+    },
+  },
+  "type": [Function],
+}
+`;

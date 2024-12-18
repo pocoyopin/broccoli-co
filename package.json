@@ -10,11 +10,14 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@types/react-test-renderer": "^19.0.0",
     "axios": "^1.7.9",
     "gh-pages": "^6.2.0",
+    "jest-styled-components": "^7.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
+    "react-test-renderer": "^19.0.0",
     "styled-components": "^6.1.13",
     "typescript": "^4.4.2"
   },
@@ -22,6 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:updateSnapshot": "jest --updateSnapshot",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
@@ -47,5 +51,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/pocoyopin/broccoli-co.git"
-}
+  }
 }

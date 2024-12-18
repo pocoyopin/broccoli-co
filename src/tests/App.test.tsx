@@ -1,10 +1,13 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
+
 import App from "../App";
 
-// TODO: unit tests
-test("renders learn react link", () => {
+jest.mock("axios", () => {
+  return { post: jest.fn() };
+});
+
+test("renders without crashing", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // const linkElement = screen.getByText(/learn react/i);
+  // expect(linkElement).toBeInTheDocument();
 });

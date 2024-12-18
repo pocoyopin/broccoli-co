@@ -23,7 +23,11 @@ const Form: React.FC<Props> = (props: Props) => {
   });
   const firstUpdate = useRef(true);
 
-  const errorMessage = useFormValidation(formValue, isSubmitting, firstUpdate.current);
+  const errorMessage = useFormValidation(
+    formValue,
+    isSubmitting,
+    firstUpdate.current
+  );
   const [apiResponse, setApiResponse] = useState({ data: "", errorMsg: "" });
 
   const handleSubmit = async () => {
@@ -42,7 +46,8 @@ const Form: React.FC<Props> = (props: Props) => {
     const submitForm = async () => {
       if (isSubmitting && Object.values(errorMessage).every((item) => !item))
         try {
-          const res = await submitInviteForm(formValue);
+          const { confirmEmail, ...rest } = formValue;
+          const res = await submitInviteForm(rest);
           setApiResponse(res);
         } catch (e) {
           console.error({ e });
@@ -72,6 +77,7 @@ const Form: React.FC<Props> = (props: Props) => {
                 aria-label="Ok button"
                 onClick={props.onClose}
                 size="small"
+                id="closeModalButton"
               >
                 Ok
               </Button>
@@ -92,6 +98,7 @@ const Form: React.FC<Props> = (props: Props) => {
                 }}
                 onClick={props.onClose}
                 aria-label="Close form button"
+                id="inviteFormCloseButton"
               >
                 &#x2715;
               </Button>
@@ -128,6 +135,7 @@ const Form: React.FC<Props> = (props: Props) => {
 
               <Button
                 aria-label="Send invite button"
+                id="submitInviteButton"
                 type="button"
                 onClick={handleSubmit}
                 className={isSubmitting ? "disabled" : undefined}
