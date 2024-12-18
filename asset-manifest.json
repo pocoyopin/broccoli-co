@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/broccoli-co-app/static/css/main.e134c3cf.css",
+    "main.js": "/broccoli-co-app/static/js/main.f78ac179.js",
+    "static/media/loading.gif": "/broccoli-co-app/static/media/loading.683988f3fa06248b8d66.gif",
+    "static/media/logo.png": "/broccoli-co-app/static/media/logo.0e15574778d45f0ccdfe.png",
+    "index.html": "/broccoli-co-app/index.html",
+    "main.e134c3cf.css.map": "/broccoli-co-app/static/css/main.e134c3cf.css.map",
+    "main.f78ac179.js.map": "/broccoli-co-app/static/js/main.f78ac179.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e134c3cf.css",
+    "static/js/main.f78ac179.js"
+  ]
+}
